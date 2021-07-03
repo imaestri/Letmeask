@@ -1,4 +1,5 @@
 import { useHistory, useParams } from "react-router-dom";
+import toast, { Toaster } from 'react-hot-toast';
 
 import logoImg from "../assets/images/logo.svg";
 import deleteImg from "../assets/images/delete.svg";
@@ -33,7 +34,6 @@ export default function AdminRoom() {
     database.ref(`rooms/${roomId}`).update({
       endedAt: new Date(),
     });
-
     history.push("/");
   }
 
@@ -48,6 +48,7 @@ export default function AdminRoom() {
     await database.ref(`rooms/${roomId}/questions/${questionId}`).update({
       isAnswered: true
     });
+    toast.success("Pergunta respondida!");
 
   }
 
@@ -57,6 +58,8 @@ export default function AdminRoom() {
     await database.ref(`rooms/${roomId}/questions/${questionId}`).update({
       isHighlighted: true
     });
+    toast.success("Pergunta destacada!");
+
 
   }
 
@@ -116,6 +119,7 @@ export default function AdminRoom() {
                 >
                   <img src={deleteImg} alt="Remover pergunta" />
                 </button>
+                <Toaster />
               </Question>
             );
           })}

@@ -2,6 +2,8 @@ import { FormEvent, useState } from "react";
 
 import { useHistory } from "react-router";
 
+import toast, { Toaster } from 'react-hot-toast';
+
 import ilustrationImg from "../assets/images/illustration.svg";
 import logoImg from "../assets/images/logo.svg";
 import googleIconImg from "../assets/images/google-icon.svg";
@@ -38,12 +40,12 @@ export default function Home() {
     const roomRef = await database.ref(`rooms/${roomCode}`).get();
 
     if (!roomRef.exists()) {
-      alert("Room does not exists");
+      toast.error("A sala especificada não existe!");
       return;
     }
 
     if(roomRef.val().endedAt){
-      alert('Room already closed.');
+      toast.error("A sala especificada está fechada!");
       return; 
     }
 
@@ -76,7 +78,8 @@ export default function Home() {
               value={roomCode}
               onChange={(e) => setRoomCode(e.target.value)}
             />
-            <Button type="submit">Entrar na sala</Button>
+            <Button onClick={handleJoinRoom} type="submit">Entrar na sala</Button>
+            <Toaster />
           </form>
         </div>
       </main>
