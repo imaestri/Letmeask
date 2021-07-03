@@ -1,10 +1,10 @@
-import React from "react";
+
 
 import toast, { Toaster } from 'react-hot-toast';
 
-import copyImg from "../assets/images/copy.svg";
+import copyImg from "../../assets/images/copy.svg";
 
-import "../styles/roomCode.scss";
+import "./Style/index.scss";
 
 type RoomCodeProps = {
   code: string;

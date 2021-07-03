@@ -1,21 +1,21 @@
 import { useHistory, useParams } from "react-router-dom";
 import toast, { Toaster } from 'react-hot-toast';
 
-import logoImg from "../assets/images/logo.svg";
-import deleteImg from "../assets/images/delete.svg";
-import checkImg from "../assets/images/check.svg";
-import answerImg from "../assets/images/answer.svg";
+import logoImg from "../../assets/images/logo.svg";
+import deleteImg from "../../assets/images/delete.svg";
+import checkImg from "../../assets/images/check.svg";
+import answerImg from "../../assets/images/answer.svg";
 
-import { database } from "../services/firebase";
+import { database } from "../../services/firebase";
 
-import Button from "../components/Button";
-import RoomCode from "../components/RoomCode";
-import Question from "../components/Question";
+import Button from "../../components/Button/index";
+import RoomCode from "../../components/RoomCode/index";
+import Question from "../../components/Question/index";
 
 // import { useAuth } from "../hooks/useAuth";
-import { useRoom } from "../hooks/useRoom";
+import { useRoom } from "../../hooks/useRoom";
 
-import "../styles/room.scss";
+import "../Room/style/room.scss";
 
 
 type RoomParams = {

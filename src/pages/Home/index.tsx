@@ -4,16 +4,17 @@ import { useHistory } from "react-router";
 
 import toast, { Toaster } from 'react-hot-toast';
 
-import ilustrationImg from "../assets/images/illustration.svg";
-import logoImg from "../assets/images/logo.svg";
-import googleIconImg from "../assets/images/google-icon.svg";
+import ilustrationImg from "../../assets/images/illustration.svg";
+import logoImg from "../../assets/images/logo.svg";
+import googleIconImg from "../../assets/images/google-icon.svg";
 
-import Button from "../components/Button";
+import Button from "../../components/Button/index";
 
-import { useAuth } from "../hooks/useAuth";
+import { useAuth } from "../../hooks/useAuth";
 
-import "../styles/auth.scss";
-import { database } from "../services/firebase";
+import "./style/index.scss";
+
+import { database } from "../../services/firebase";
 
 export default function Home() {
   const history = useHistory();
